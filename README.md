@@ -6,7 +6,7 @@ Install python 3 on Windows.
 Ensure that python3 and pip3 are in the PATH.
 
 ## Configuration
-Put your credentials in credentials.txt in the following format:
+Put your credentials in credentials.txt in the following format (one per line):
 
 [OCS URI]
 
@@ -21,3 +21,8 @@ Put your credentials in credentials.txt in the following format:
 Open cmd.exe
 
 Run ocsexplorer.bat
+
+
+## Bugs
+
+You tell me ;_;
