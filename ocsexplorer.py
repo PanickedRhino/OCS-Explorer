@@ -9,7 +9,6 @@
 import json
 import requests
 import terminalplot
-import time
 from consolemenu import *
 from consolemenu.items import *
 
