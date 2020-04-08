@@ -31,13 +31,16 @@ def get_count():
     possible_counts= [10, 100, 1000]
     return possible_counts
 
-def get_data(stream_url, count):
+def get_data(stream_url, count, is_graph):
     """Returns a list of data for a stream."""
     data = requests.get(stream_url + '/Data' + '?count=' + str(count) + '&Startindex=1970-01-01T00:00:00Z', headers=headers)
     Values = []
     for event in data.json():
         Values.append(event['Value'])
-    terminalplot.plot(range(len(Values)), Values)
+    if is_graph:
+        terminalplot.plot(range(len(Values)), Values)
+    else:
+        print(Values)
     input("Press any key to continue...")
     return
 
@@ -63,8 +66,10 @@ def data_selection(stream_url, counts):
     """Presents a menu for selection of a data range (10, 100, or 1000 data points since 1970)."""
     top_menu = ConsoleMenu("How many Data point would you like?", "")
     for count in counts:
-        count_option = FunctionItem(str(count), get_data, [stream_url, count])
+        count_option = FunctionItem(str(count), get_data, [stream_url, count, False])
+        count_option2 = FunctionItem(str(count) + ' (Graph)', get_data, [stream_url, count, True])
         top_menu.append_item(count_option)
+        top_menu.append_item(count_option2)
     top_menu.show()
 
 if __name__ == "__main__":
