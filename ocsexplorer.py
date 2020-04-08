@@ -2,10 +2,6 @@
 #OCS Console Explorer
 #Requires python3
 #Requires the following pip3 packages: console-menu, requests
-#!/usr/bin/env/python3
-#OCS Console Explorer
-#Requires python3
-#Requires the following pip3 packages: console-menu, requests
 import json
 import requests
 import terminalplot
